@@ -46,15 +46,14 @@ exports.getBreweryDetails = (req, res) => {
 
 exports.getBreweryPage = async (req, res) => {
     try {
-        // Fetch brewery details by ID
+       
         const breweryId = req.params.breweryId;
         const breweryResponse = await axios.get(`https://api.openbrewerydb.org/breweries/${breweryId}`);
         const brewery = breweryResponse.data;
 
-        // Fetch existing reviews for the brewery (from your database)
+        
         const existingReviews = await Review.find({ breweryId: breweryId });
 
-        // Render the brewery page with brewery details and existing reviews
         res.render('brewery', { brewery: brewery, reviews: existingReviews });
     } catch (error) {
         console.error('Error fetching brewery details:', error.message);
