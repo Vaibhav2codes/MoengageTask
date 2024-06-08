@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewery Details</title>
+    <style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #080710;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #080710;
+    padding: 20px;
+}
+
+#breweryDetails {
+    background-color: #080710;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#breweryDetails h2 {
+    margin-bottom: 10px;
+}
+
+#breweryDetails p {
+    margin-bottom: 5px;
+}
+
+#breweryDetails a {
+    color: #007bff;
+}
+
+#breweryDetails a:hover {
+    text-decoration: underline;
+}
+
+.review-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.review-box {
+    width: calc(45% - 20px); /* 50% width for each box with spacing */
+    background-color: #272727;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-box h4 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.review-box p {
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.review-box a {
+    color: #007bff;
+}
+
+.review-box a:hover {
+    text-decoration: underline;
+}
+#reviewForm {
+    background-color: #272727;
+    padding: 20px;
+    width: 70%;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+#reviewForm label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+#reviewForm textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    background-color: #080710;
+}
+
+#reviewForm button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#reviewForm button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Brewery details section -->
+    <div id="breweryDetails">
+        <!-- Brewery details will be dynamically populated here -->
+    </div>
+
+    <!-- Review form -->
+    <h2>Add Review</h2>
+    <form id="reviewForm">
+        <input type="hidden" id="brewery_id" name="brewery_id" value="">
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" maxlength="30"></textarea><br>
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const breweryId = urlParams.get('id');
+            document.getElementById('brewery_id').value = breweryId;
+        });
+    </script>
+</body>
+</html>
+
+
+    
